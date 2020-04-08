@@ -1,0 +1,16 @@
+.navbar_head {
+    border-bottom: 1px solid #948e8e;
+  }
+.link_head{
+    font-size: 13px !important;
+    color: #423d3d !important;
+    font-weight:bold;
+    text-transform: uppercase !important;
+    font-family: auto;
+} 
+.link_head:hover {
+    color: #6c757d !important;
+} 
+.ul_set {
+    margin-left: 84%;
+}

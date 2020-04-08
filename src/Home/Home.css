@@ -1,0 +1,122 @@
+.h1 {
+    color: brown;
+}
+ .row_one {
+     margin-top: 4%;
+ }
+ .row_two {
+     margin-top: 5%;
+ }
+ .main_heading {
+    color:#343a40;
+    font-size: 18px;
+    font-family: "archia";
+    font-size: 24px!important;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+ }
+ .main_para {
+    font-size: 11px;
+    color: #6c757d;
+    font-family: inherit;
+}
+.para_one {
+    color: rgba(40,167,69,.6);
+    font-weight: 900;
+    font-size: 11px;
+    text-align: right;
+    margin: 0;
+}
+.span_last_time {
+    color: rgb(40, 167, 69);
+    font-weight: 600;
+    font-size: 11px;
+    text-align: right;
+}
+.heading_h5_style {
+    font-size: 14px;
+}
+.card_one {
+    background: rgba(255,7,58,.12549);
+    color: #ff073a;
+    padding: .5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-left: .25rem;
+    margin-right: .25rem;
+    margin-bottom: .5rem;
+    width: 100%;
+}
+.card_two {
+    background: rgba(0,123,255,.0627451);
+    color: #ff073a;
+    padding: .5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-left: -0.75rem;
+    margin-right: .25rem;
+    margin-bottom: .5rem;
+    width: 100%;
+}
+.card_three {
+    background: rgba(40,167,69,.12549);
+    color: #ff073a;
+    padding: .5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-left: -1.75rem;
+    margin-right: .25rem;
+    margin-bottom: .5rem;
+    width: 100%;
+}
+.card_four {
+    background: rgba(108,117,125,.0627451);
+    color: #ff073a;
+    padding: .5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-left: -2.75rem;
+    margin-right: .25rem;
+    margin-bottom: .5rem;
+    width: 100%;
+}
+.heading_6_style {
+    margin:0;
+    font-size:10px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.stats-bottom {
+    display: flex;
+    flex-direction: row;
+}
+.heading_1_count_style {
+    font-weight: 600;
+    font-size:16px;
+}
+.country_heading {
+    margin: 0;
+    color: #e23028;
+    word-wrap: break-word;
+    font-weight: 900;
+    font-family: inherit;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.para_onee {
+    color: rgba(40,167,69,.6);
+    font-weight: 900;
+    font-size: 11px;
+    margin-left: 14px;
+    margin:0;
+}
+.span_last_timee {
+    color: rgb(40, 167, 69);
+    font-weight: 600;
+    font-size: 11px;
+}

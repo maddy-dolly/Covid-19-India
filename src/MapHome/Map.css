@@ -1,0 +1,55 @@
+.MapData {
+    display: flex;
+    flex-wrap: wrap;
+}
+.svg-map {
+    stroke: #e2c9c9;
+}
+.state1Color {
+    fill: #fff5f0;
+    cursor: pointer;
+}
+.state1Color:hover {
+    stroke-width: 2;
+    stroke: #ff073a;
+}
+.state2Color {
+    fill: #fdd5c4;
+    cursor: pointer;
+}
+.state2Color:hover {
+    stroke-width: 2;
+    stroke: #ff073a;
+}
+.state3Color {
+    fill: #fca98d;
+    cursor: pointer;
+}
+.state3Color:hover {
+    stroke-width: 2;
+    stroke: #ff073a;
+}
+.state4Color {
+    fill: #f65a41;
+    cursor: pointer;
+}
+.state4Color:hover {
+    stroke-width: 2;
+    stroke: #ff073a;
+}
+.state5Color {
+    fill: #f24b37;
+    cursor: pointer;
+}
+.state5Color:hover {
+    stroke-width: 2;
+    stroke: #ff073a;
+}
+.state6Color {
+    fill: #be151a;
+    cursor: pointer;
+}
+.state6Color:hover {
+    stroke-width: 2;
+    stroke: #ff073a;
+}
