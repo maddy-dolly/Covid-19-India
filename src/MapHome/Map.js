@@ -4,14 +4,6 @@ import axios from 'axios';
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
 import "./Map.css";
-import TimeAgo from 'javascript-time-ago'
- 
-// Load locale-specific relative date/time formatting rules.
-import en from 'javascript-time-ago/locale/en'
- 
-// Add locale-specific relative date/time formatting rules.
-TimeAgo.addLocale(en);
-const timeAgo = new TimeAgo('en-US');
 
 
 class Map extends Component  {
@@ -92,7 +84,6 @@ class Map extends Component  {
             return (item.statecode === hovered);
         });
         const t = +total[0].confirmed;
-        console.log(t);
         if(t>=0 && t<this.state.max) {
             return 'state1Color';
         }
@@ -117,17 +108,14 @@ class Map extends Component  {
     render() {
         if(this.state.isLoaded) {
             return (
-                <div className="MapData" style={{width: '80%', margin: 'auto'}}>
-                    <div className="col-md-6"></div>
-                    <div className="col-lg-6" style={{height: '50%'}}>
+                
+                    <div>
                         <SVGMap 
                             map={India} 
                             onLocationMouseOver={this.onHoverHandler} 
                             locationClassName={this.getLocationClassName}
                         />
                     </div>
-                    
-                </div>
             );
         }
         else {

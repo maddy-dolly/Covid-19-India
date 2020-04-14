@@ -4,6 +4,14 @@ import { Sparklines, SparklinesCurve, SparklinesSpots } from 'react-sparklines';
 import './Home.css'
 import axios from 'axios';
 import Map from '../MapHome/Map';
+import Table from '../DataTableahome/Table';
+import ChartConfirmed from '../ChartHome/ChartConfirmed';
+import ChartRecovered from '../ChartHome/ChartRecovered';
+import ChartDeath from '../ChartHome/ChartDeath'
+import Loaderr from '../Loaderr';
+
+
+
 
 
 let confirmedCase = [];
@@ -20,6 +28,7 @@ let totalDeltaRecovered=null;
 let totalDeltaDeaths=null;
 
 class Home extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -60,18 +69,16 @@ class Home extends Component {
           this.setState({
               max: max
           })
-          console.log('hyy');
+         
           
         }
         this.setState({
-          isLoaded: true,
           items: statewise,
           max: max
         });
       },
       error => {
         this.setState({
-          isLoaded: true,
           error: error
         });
       }
@@ -83,7 +90,7 @@ class Home extends Component {
 
   checkCounter(event) {
     const hovered = this.getLocationName(event).toUpperCase();
-    // console.log('Before Chnage',this.state.selectedState);
+   // console.log('Before Chnage',this.state.selectedState);
     const total = this.state.items.filter((item) => {
         return (item.statecode === hovered);
     });
@@ -102,7 +109,7 @@ class Home extends Component {
     //console.log(data.statewise[0].lastupdatedtime);
     
       let case_time_data = data.cases_time_series;
-       console.log('Total Data',data.statewise[0]);
+      // console.log('Total Data',data.statewise[0]);
       totalConfirmed=data.statewise[0].confirmed;
       totalActive=data.statewise[0].active;
       totalRecovered=data.statewise[0].recovered;
@@ -111,6 +118,7 @@ class Home extends Component {
       lastupdatedtime=data.statewise[0].lastupdatedtime;
       totalDeltaRecovered=data.statewise[0].deltarecovered;
       totalDeltaDeaths=data.statewise[0].deltadeaths;
+
 
       
       
@@ -153,7 +161,7 @@ class Home extends Component {
                       <div className="col-md-3" style={{ color:'#ff073a99',textAlign:'center'}}>
                           <h6>Confirmed</h6>
                           <h5 className="heading_h5_style">[+{totalDeltaConfirmed}]</h5>
-                          <h3 style={{color:'red'}}>{totalConfirmed}</h3>
+                          <h3 style={{color:'red'}} className="heading_h3_style">{totalConfirmed}</h3>
                           <Sparklines data={confirmedCase} svgWidth={100} >
                               <SparklinesCurve style={{ strokeWidth: 5, stroke: "#ff073a99", fill: "none" }} />
                               <SparklinesSpots size={7} />
@@ -162,7 +170,7 @@ class Home extends Component {
                       <div className="col-md-3" style={{ color: 'rgba(0,123,255,.6)',textAlign:'center'}}>
                           <h6>Active</h6>
                           <h5>&nbsp;</h5>
-                          <h3 style={{color:'blue'}}>{totalActive}</h3>
+                          <h3 style={{color:'blue'}} className="heading_h3_style">{totalActive}</h3>
                           <Sparklines data={activeCase} svgWidth={100} limit={30}>
                               <SparklinesCurve style={{ strokeWidth: 5, stroke: "rgba(0,123,255,.6)", fill: "none" }} />
                               <SparklinesSpots size={7}/>
@@ -171,7 +179,7 @@ class Home extends Component {
                       <div className="col-md-3" style={{color: 'rgba(40,167,69,.6)',textAlign:'center'}}>
                           <h6>Recovered</h6>
                           <h5 className="heading_h5_style">[+{totalDeltaRecovered}]</h5>
-                          <h3 style={{color:'green'}}>{totalRecovered}</h3>
+                          <h3 style={{color:'green'}} className="heading_h3_style">{totalRecovered}</h3>
                           <Sparklines data={recoveredCase} limit={20} svgWidth={100} >
                               <SparklinesCurve style={{ strokeWidth: 5, stroke: "rgba(40,167,69,.6)", fill: "none" }} />
                               <SparklinesSpots size={7}/>
@@ -180,7 +188,7 @@ class Home extends Component {
                       <div className="col-md-3" style={{ color: 'rgba(108,117,125,.6)',textAlign:'center'}}>
                           <h6>Deceased</h6>
                           <h5 className="heading_h5_style">[+{totalDeltaDeaths}]</h5>
-                          <h3 style={{color:'gray'}}>{totalDeceased}</h3>
+                          <h3 style={{color:'gray'}} className="heading_h3_style">{totalDeceased}</h3>
                           <Sparklines data={deceasesCase} limit={10} svgWidth={100} >
                               <SparklinesCurve style={{ strokeWidth: 5, stroke: "rgba(108,117,125,.6)", fill: "none" }} />
                               <SparklinesSpots size={7}/>
@@ -243,27 +251,36 @@ class Home extends Component {
                       </div>
                       <div className="col-md-4" style={{textAlign: 'right',marginLeft: '-45px'}}>
                         <p className="para_onee">LAST UPDATE</p>
-                        <p className="span_last_timee">{lastupdatedtime}</p>
+                        <p className="span_last_timee">{this.state.selectedState.lastupdatedtime}</p>
                       </div>
                     </div>
               </div>
           </div>
+          <div className="row">
+            <div className="col-md-8">
+            <Table check={this.check}></Table>
+            </div>
+          
+            <div className="col-md-4">
+            <Map check={this.check}></Map>
+            <br/>
+            <ChartConfirmed></ChartConfirmed>
+            <br/>
+            <ChartRecovered></ChartRecovered>
+            <br/>
+            <ChartDeath></ChartDeath>
+            </div>
+          </div>
         </div>
-        <Map check={this.check}></Map>
+       
+        
         </div>
       );
   }
         
       else {
         return(
-          <div className="IndiaData">
-              <div className="col-md-4">
-              Loading......
-              </div>            
-              <div className="col-md-8">
-                  Loading......
-              </div>
-          </div>
+         <Loaderr></Loaderr>
       );
     }   
   }
